@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 function Footer() {
   return (
-    <main className="bg-cyan-950">
+    <main className="bg-cyan-950 mt-16">
       <div className="flex flex-col md:flex-row px-10 py-4">
         <div className="flex flex-col w-full py-4 gap-3">
           <h2 className="text-2xl font-bold py-2 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-teal-400">
@@ -31,10 +31,10 @@ function Footer() {
         </div>
         <div className="flex flex-col text-center text-white w-full py-4 gap-3">
           <h1 className="text-accent font-medium py-3">SUPPORT</h1>
-          <NavLink to="/helpcare">Help Center</NavLink>
-          <NavLink to="/termsofservice">Terms of Service</NavLink>
+          <NavLink to="/helpcenter">Help Center</NavLink>
+          <NavLink to="/terms">Terms of Service</NavLink>
           <NavLink to="/legal">Legal</NavLink>
-          <NavLink to="/privecypolicy">Privacy Policy</NavLink>
+          <NavLink to="/policypriv">Privacy Policy</NavLink>
           <NavLink to="/status">Status</NavLink>
         </div>
         <div className="flex flex-col text-center w-full py-4 gap-3">

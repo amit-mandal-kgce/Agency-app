@@ -7,6 +7,13 @@ import Service from './component/Service'
 import About from './component/About'
 import Product from './component/Product'
 import Testimonial from './component/Testimonial'
+import UnseenPage from './component/UnseenPage';
+import HelpCenter from './component/HelpCenter';
+import Terms from './component/Terms';
+import Legal from './component/Legal';
+import PolicyPriv from './component/PolicyPriv';
+import Status from './component/Status';
+import DesignPage from './component/DesignPage';
 
 function App() {
   return (
@@ -19,6 +26,13 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/product" element={<Product />} />
           <Route path="/testimonial" element={<Testimonial />} />
+          <Route path='/unseenpage' element={<UnseenPage/>}/>
+          <Route path='/designpage' element={<DesignPage/>}/>
+          <Route path='helpcenter' element={<HelpCenter/>}/>
+          <Route path='terms' element={<Terms/>}/>
+          <Route path='legal' element={<Legal/>}/>
+          <Route path='policypriv' element={<PolicyPriv/>}/>
+          <Route path='status' element={<Status/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -31,11 +31,9 @@ function ImageSlider() {
               style={{ backgroundImage: `url(${slideImage.src})` }}
             >
               <div className="p-16 sm:p-24">
-                <h1 className="text-3xl md:text-5xl font-bold text-black py-2">{slideImage.heading}</h1>
-                {/* <h1 className="text-3xl md:text-5xl font-bold text-black py-2">Lessons & Insights</h1> */}
-                <h2 className='text-2xl md:text-4xl text-green-500 font-bold py-3'>{slideImage.smheading}</h2>
-                {/* <h2 className='text-2xl md:text-4xl text-green-500 font-bold py-3'>from 7 years</h2> */}
-                <p className='text-gray-500 py-3'>
+                <h1 className="text-sm sm:text-3xl md:text-5xl font-bold text-black py-2">{slideImage.heading}</h1>
+                <h2 className='text-md sm:text-2xl md:text-4xl text-green-500 font-bold py-3'>{slideImage.smheading}</h2>
+                <p className='text-gray-500 text-xs sm:text-base py-3'>
                   Where to grow your business as a photographer: site or social
                   media?
                 </p>
