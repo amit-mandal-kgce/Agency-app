@@ -37,7 +37,7 @@ function ImageSlider() {
                   Where to grow your business as a photographer: site or social
                   media?
                 </p>
-                <div className=" ">
+                <div className="">
                   <button className="bg-green-800 px-3 text-2xl text-white rounded-md py-1">
                     Register
                   </button>

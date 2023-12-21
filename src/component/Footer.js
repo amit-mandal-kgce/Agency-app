@@ -27,15 +27,15 @@ function Footer() {
           <NavLink to="/service">Service</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/product">Product</NavLink>
-          <NavLink to="/testimonial">Testimonial</NavLink>
+          <NavLink to="/testimonal">Testimonial</NavLink>
         </div>
         <div className="flex flex-col text-center text-white w-full py-4 gap-3">
           <h1 className="text-accent font-medium py-3">SUPPORT</h1>
-          <NavLink to="/helpcenter">Help Center</NavLink>
-          <NavLink to="/terms">Terms of Service</NavLink>
-          <NavLink to="/legal">Legal</NavLink>
-          <NavLink to="/policypriv">Privacy Policy</NavLink>
-          <NavLink to="/status">Status</NavLink>
+          <NavLink to="/">Help Center</NavLink>
+          <NavLink to="/">Terms of Service</NavLink>
+          <NavLink to="/">Legal</NavLink>
+          <NavLink to="/">Privacy Policy</NavLink>
+          <NavLink to="/">Status</NavLink>
         </div>
         <div className="flex flex-col text-center w-full py-4 gap-3">
           <h1 className="text-accent font-medium py-3">STAY UP TO DATE</h1>

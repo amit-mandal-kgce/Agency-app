@@ -2,9 +2,13 @@ import React, {useState} from "react";
 import { NavLink } from "react-router-dom";
 import { IoMdMenu } from "react-icons/io";
 import { RxCross1 } from "react-icons/rx";
+import { FaUserAlt } from "react-icons/fa";
 
 function Navbar() {
   const [showBox, setShowBox] = useState(false);
+  const [user] = useState(
+    () => JSON.parse(localStorage.getItem("user:detail")) || {}
+  );
 
   const toggleBox = () => {
     setShowBox(!showBox);
@@ -25,35 +29,50 @@ function Navbar() {
           </h2>
         </div>
         <div className="hidden md:block">
-          <div
-            className="grid md:grid-cols-5 gap-2 text-base font-semibold md:py-2 lg:text-md my-5 md:my-0 text-center text-accent">
+          <div className="grid md:grid-cols-5 gap-2 text-base font-semibold md:py-2 lg:text-md my-5 md:my-0 text-center text-accent">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/service">Service</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/product">Product</NavLink>
-            <NavLink to="/testimonial">Testimonial</NavLink>
+            <NavLink to="/testimonal">Testimonial</NavLink>
           </div>
         </div>
-        {showBox && (<div
-        className="grid grid-rows-5 md:grid-cols-5 gap-2 text-sm md:py-2 lg:text-md my-5 md:my-0 text-center text-accent "
-        onClick={toggleBox}
-      >
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/service">Service</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/product">Product</NavLink>
-        <NavLink to="/testimonial">Testimonial</NavLink>
-      </div>)}
-        <div className="text-center text-md hidden md:block">
-          <button className="bg-accent rounded-sm px-2 py-1 text-white">
-            Login
-          </button>
+        {showBox && (
+          <div
+            className="grid grid-rows-5 md:grid-cols-5 gap-2 text-sm md:py-2 lg:text-md my-5 md:my-0 text-center text-accent "
+            onClick={toggleBox}
+          >
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/service">Service</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/product">Product</NavLink>
+            <NavLink to="/testimonal">Testimonial</NavLink>
+          </div>
+        )}
+        <div className="hidden md:block">
+          <div className="flex flex-row items-center justify-center ">
+            <div className="px-2 text-3xl">
+              <FaUserAlt />
+            </div>
+            <div className="justify-center text-md ">
+              <div className="px-2 text-sm font-bold">{user.fullName}</div>
+              <div className="px-2 text-xs font-light">{user.email}</div>
+            </div>
+          </div>
         </div>
-        {showBox && (<div className="text-center text-md" onClick={toggleBox}>
-          <button className="bg-accent rounded-sm px-2 py-1 text-white">
-            Login
-          </button>
-        </div>)}
+        {showBox && (
+          <div className="text-center text-md" onClick={toggleBox}>
+            <div className="flex flex-row items-center justify-center ">
+              <div className="px-2 text-3xl">
+                <FaUserAlt />
+              </div>
+              <div className="justify-center text-md ">
+                <div className="px-2 text-sm font-bold">{user.fullName}</div>
+                <div className="px-2 text-xs font-light">{user.email}</div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </menu>
   );

@@ -1,42 +1,101 @@
-import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Navbar from './component/Navbar';
-import Footer from './component/Footer';
-import Home from './component/Home';
-import Service from './component/Service'
-import About from './component/About'
-import Product from './component/Product'
-import Testimonial from './component/Testimonial'
-import UnseenPage from './component/UnseenPage';
-import HelpCenter from './component/HelpCenter';
-import Terms from './component/Terms';
-import Legal from './component/Legal';
-import PolicyPriv from './component/PolicyPriv';
-import Status from './component/Status';
-import DesignPage from './component/DesignPage';
+import "./App.css";
+import { Route, Routes, Navigate } from "react-router-dom";
+import From from "./models/From";
+import Home from "./models/Home";
+import About from './models/About'
+import Product from './models/Product'
+import Service from './models/Service'
+import Testimonal from './models/Testimonal'
+import Footer from './component/Footer'
+import Navbar from './component/Navbar'
+
+const ProtectedRoute = ({ children, auth = false }) => {
+  const isLoggedIn = localStorage.getItem("user:token") !== null || false;
+
+  if (!isLoggedIn && auth) {
+    return <Navigate to={"/users/sign_in"} />;
+  } else if (
+    isLoggedIn &&
+    ["/users/sign_in", "/users/sign_up"].includes(window.location.pathname)
+  ) {
+    return <Navigate to={"/"} />;
+  }
+  return children;
+};
+
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Navbar />
+    <main>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/service" element={<Service />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/testimonial" element={<Testimonial />} />
-          <Route path='/unseenpage' element={<UnseenPage/>}/>
-          <Route path='/designpage' element={<DesignPage/>}/>
-          <Route path='helpcenter' element={<HelpCenter/>}/>
-          <Route path='terms' element={<Terms/>}/>
-          <Route path='legal' element={<Legal/>}/>
-          <Route path='policypriv' element={<PolicyPriv/>}/>
-          <Route path='status' element={<Status/>}/>
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute auth={true}>
+                <Navbar/>
+                <Home />
+                <Footer/>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/service"
+            element={
+              <ProtectedRoute auth={true}>
+                <Navbar/>
+                <Service />
+                <Footer/>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <ProtectedRoute auth={true}>
+                <Navbar/>
+                <About />
+                <Footer/>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/product"
+            element={
+              <ProtectedRoute auth={true}>
+                <Navbar/>
+                <Product />
+                <Footer/>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/testimonal"
+            element={
+              <ProtectedRoute auth={true}>
+                <Navbar/>
+                <Testimonal />
+                <Footer/>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/users/sign_in"
+            element={
+              <ProtectedRoute>
+                <From isSignInPage={true} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/users/sign_up"
+            element={
+              <ProtectedRoute>
+                <From isSignInPage={false} />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
-        <Footer />
-      </BrowserRouter>
-    </>
+    </main>
   );
 }
 
