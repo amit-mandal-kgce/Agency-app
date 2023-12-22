@@ -22,7 +22,7 @@ const From = ({ isSignInPage = true }) => {
     console.log("data :>>", data);
 
     const res = await fetch(
-      `http://localhost:8000/api/${isSignInPage ? "login" : "register"}`,
+      `https://agency-backend-rpwn.vercel.app/api/${isSignInPage ? "login" : "register"}`,
       {
         method: "POST",
         headers: {
