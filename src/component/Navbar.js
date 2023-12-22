@@ -1,8 +1,9 @@
-import React, {useState} from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { IoMdMenu } from "react-icons/io";
 import { RxCross1 } from "react-icons/rx";
 import { FaUserAlt } from "react-icons/fa";
+import { LiaSignOutAltSolid } from "react-icons/lia";
 
 function Navbar() {
   const [showBox, setShowBox] = useState(false);
@@ -13,6 +14,15 @@ function Navbar() {
   const toggleBox = () => {
     setShowBox(!showBox);
   };
+
+  // logOut....................
+  const navigate = useNavigate()
+  const logOut = () =>{
+    window.localStorage.removeItem('user:token');
+    navigate("/users/sign_in");
+  }
+
+  
 
   return (
     <menu>
@@ -58,6 +68,12 @@ function Navbar() {
               <div className="px-2 text-sm font-bold">{user.fullName}</div>
               <div className="px-2 text-xs font-light">{user.email}</div>
             </div>
+            <div
+              className="text-2xl hover:text-lg cursor-pointer px-3"
+              onClick={() => logOut()}
+            >
+              <LiaSignOutAltSolid />
+            </div>
           </div>
         </div>
         {showBox && (
@@ -69,6 +85,12 @@ function Navbar() {
               <div className="justify-center text-md ">
                 <div className="px-2 text-sm font-bold">{user.fullName}</div>
                 <div className="px-2 text-xs font-light">{user.email}</div>
+              </div>
+              <div
+                className="text-lg hover:text-sm cursor-pointer px-3"
+                onClick={() => logOut()}
+              >
+                <LiaSignOutAltSolid />
               </div>
             </div>
           </div>
