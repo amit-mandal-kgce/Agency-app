@@ -43,11 +43,11 @@ const From = ({ isSignInPage = true }) => {
 
   return (
     <div className="bg-blue-300 h-screen flex items-center justify-center">
-      <div className="bg-pink-300 w-[500px] h-[600px] shadow-lg rounded-lg flex flex-col justify-center items-center">
-        <div className="text-2xl font-bold ">
+      <div className="bg-pink-300 w-[300px] lg:w-[400px] h-[400px] lg:h-[500px] shadow-lg rounded-lg flex flex-col justify-center items-center">
+        <div className="text-xl lg:text-2xl font-bold ">
           Welcome {isSignInPage && "Back"}
         </div>
-        <div className="text-sm font-light mb-14">
+        <div className="text-xs lg:text-sm font-light mb-8 lg:mb-14">
           {isSignInPage
             ? "Sign in to get explored"
             : "Sign up now to get started"}
@@ -61,7 +61,7 @@ const From = ({ isSignInPage = true }) => {
               label="Full Name"
               name="name"
               placeholder="Enter your name"
-              className="mb-6"
+              className="mb-3 lg:mb-6"
               value={data.fullName}
               onChange={(e) => setData({ ...data, fullName: e.target.value })}
             />
@@ -71,7 +71,7 @@ const From = ({ isSignInPage = true }) => {
             name="email"
             type="email"
             placeholder="Enter your email"
-            className="mb-6"
+            className="mb-3 lg:mb-6"
             value={data.email}
             onChange={(e) => setData({ ...data, email: e.target.value })}
           />
@@ -86,11 +86,11 @@ const From = ({ isSignInPage = true }) => {
           />
           <Button
             label={isSignInPage ? "Sign In" : "Sign Up"}
-            className="w-full mb-2"
+            className="w-full mb-2 text-xs lg:text-base"
             type="submit"
           />
         </form>
-        <div>
+        <div className="text-xs lg:text-base">
           {isSignInPage ? "Didn't have an account?" : "Alredy have an account?"}{" "}
           <span
             className="underline text-blue-400 cursor-pointer"
